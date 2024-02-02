@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mushroom Data Prediction</title>
+    <style>
+      body {
+            background-image: url('E:/Mushrooms_classfication_project/mushroom_image1.jpg'); /* Add your image URL or relative path here */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+        }
+  /* Updated styles */
+  label, select {
+    font-size: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: block; /* Makes the element a block, allowing it to fill the width */
+        width: 90%; /* Sets a specific width */
+        margin: auto; /* Centers the block */
+        margin-bottom: 10px; /* Adds some space below each element */
+      }
+
+      select, textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+      }
+
+      form {
+        width: 50%;
+        margin: 0 auto; /* Center the form on the page */
+      }
+
+      input[type="submit"] {
+        width: 92%; /* Adjusts the width of the submit button to match the fields */
+        padding: 12px;
+        margin: auto; /* Centers the button */
+        display: block; /* Makes the button a block element */
+        background-color: #4CAF50; /* Example button color */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049; /* Darker shade for hover effect */
+      }
+
+      .result-message {
+        text-align: center; /* Centers the text */
+        margin-top: 20px; /* Adds space above the message */
+      }
+
+      </style>
+</head>
+
+<body>
+    <h2>Mushroom Data Input Form</h2>
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+
+        <label for="cap_shape">cap shape:</label>
+        <select id="cap_shape" name="cap_shape">
+         <option value ="none">None</option>
+         <option value="x">x</option>
+         <option value="b">b</option>
+         <option value="s">s</option>
+         <option value="f">f</option>
+         <option value="k">k</option>
+         <option value="c">c</option>
+        </select>
+        <br>
+
+
+        <label for="cap_surface">cap surface:</label>
+        <select id="cap_surface" name="cap_surface">
+         <option value ="none">None</option>
+         <option value="s">s</option>
+         <option value="y">y</option>
+         <option value="f">f</option>
+         <option value="g">g</option>
+        </select>
+        <br>
+
+
+        <label for="cap_color">cap color:</label>
+        <select id="cap_color" name="cap_color">
+         <option value ="none">None</option>
+         <option value="n">n</option>
+         <option value="y">y</option>
+         <option value="w">w</option>
+         <option value="g">g</option>
+         <option value="e">e</option>
+         <option value ="p">p</option>
+         <option value="b">b</option>
+         <option value ='u'>u</option>
+         <option value ='c'>c</option>
+         <option value ='r'>r</option>
+        </select>
+        <br>
+        
+        <label for="bruises">Bruises:</label>
+        <select id="bruises" name="bruises">
+         <option value ="none">None</option>
+         <option value="t">t</option>
+         <option value="f">f</option>
+        </select>
+        <br>
+        
+
+        <label for="odor">Odor:</label>
+        <select id="odor" name="odor">
+         <option value ="none">None</option>
+         <option value="p">p</option>
+         <option value="a">a</option>
+         <option value ="l">l</option>
+         <option value="n">n</option>
+         <option value="f">f</option>
+         <option value="c">c</option>
+         <option value ="y">y</option>
+         <option value="s">s</option>
+         <option value="m">m</option>
+        </select>
+        <br>
+
+
+        <label for="gill_attachment">Gill Attachement:</label>
+        <select id="gill_attachment" name="gill_attachment">
+         <option value ="none">None</option>
+         <option value="f">f</option>
+         <option value="a">a</option>
+        </select>
+        <br>
+
+        <label for="gill_spacing">Gill spacing:</label>
+        <select id="gill_spacing" name="gill_spacing">
+         <option value ="none">None</option>
+         <option value="c">c</option>
+         <option value="w">w</option>
+        </select>
+        <br>
+
+        <label for="gill_size">Gill size:</label>
+        <select id="gill_size" name="gill_size">
+         <option value ="none">None</option>
+         <option value="b">b</option>
+         <option value="n">n</option>
+        </select>
+        <br>
+         
+        <label for="gill_color">Gill color:</label>
+        <select id="gill_color" name="gill_color">
+         <option value ="none">None</option>
+         <option value="k">k</option>
+         <option value="n">n</option>
+         <option value ='g'></option>
+         <option value ="p">h</option>
+         <option value="w">k</option>
+         <option value="h">n</option>
+         <option value ='u'>o</option>
+         <option value='e'>p</option>
+         <option value ='b'>u</option>
+         <option value ='r'>w</option>
+         <option value = 'y'>y</option>
+         <option value="o">o</option>
+        </select>
+        <br>
+       
+        <label for="stalk_shape">stalk size:</label>
+        <select id="stalk_shape" name="stalk_shape">
+         <option value ="none">None</option>
+         <option value="e">e</option>
+         <option value="t">t</option>
+        </select>
+        <br>
+
+        <label for="stalk_root">stalk root:</label>
+        <select id="stalk_root" name="stalk_root">
+         <option value ="none">None</option>
+         <option value="e">e</option>
+         <option value="c">c</option>
+         <option value="b">b</option>
+         <option value="r">r</option>
+         <option value="?">?</option>
+        </select>
+        <br>
+
+        <label for="stalk_surface_above_ring">stalk surface above ring:</label>
+        <select id="stalk_surface_above_ring" name="stalk_surface_above_ring">
+         <option value ="none">None</option>
+         <option value="f">f</option>
+         <option value="y">y</option>
+         <option value="k">k</option>
+         <option value="s">s</option>
+        </select>
+        <br>
+        <label for="stalk_surface_below_ring">stalk surface below ring:</label>
+        <select id="stalk_surface_below_ring" name="stalk_surface_below_ring">
+         <option value ="none">None</option>
+         <option value="f">f</option>
+         <option value="y">y</option>
+         <option value="k">k</option>
+         <option value="s">s</option>
+        </select>
+        <br>
+        
+        <label for="stalk_color_above_ring">stalk surface color above ring:</label>
+        <select id="stalk_color_above_ring" name="stalk_color_above_ring">
+         <option value ="none">None</option>
+         <option value="w">w</option>
+         <option value="g">g</option>
+         <option value="p">p</option>
+         <option value="n">n</option>
+         <option value ="b">b</option>
+         <option value ="e">e</option>
+         <option value ="o">o</option>
+         <option value ="c">c</option>
+         <option value="y">y</option>
+        </select>
+        <br>
+
+        <label for="stalk_color_below_ring">stalk surface color ring:</label>
+        <select id="stalk_color_below_ring" name="stalk_color_below_ring">
+         <option value ="none">None</option>
+         <option value="w">w</option>
+         <option value="p">p</option>
+         <option value="g">g</option>
+         <option value="b">b</option>
+         <option value ="n">n</option>
+         <option value ="e">e</option>
+         <option value ="y">y</option>
+         <option value="o">o</option>
+         <option value="c">c</option>
+        </select>
+        <br>
+        <label for="veil_type">veil_type:</label>
+        <select id="veil_type" name="veil_type">
+         <option value ="none">None</option>
+         <option value="p">p</option>
+        </select>
+         
+        <br>
+        <label for="veil_color">veil_color:</label>
+        <select id="veil_color" name="veil_color">
+         <option value ="none">None</option>
+         <option value="w">w</option>
+         <option value="n">n</option>
+         <option value="o">o</option>
+         <option value ="y">y</option>
+        </select>
+        <br>
+        <label for="ring_number">ring_number:</label>
+        <select id="ring_number" name="ring_number">
+         <option value ="none">None</option>
+         <option value="o">o</option>
+         <option value="t">t</option>
+         <option value="n">n</option>
+        </select>
+        <br>
+
+        <label for="ring_type">ring_type:</label>
+        <select id="ring_type" name="ring_type">
+         <option value ="none">None</option>
+         
+         <option value="p">p</option>
+         <option value="e">e</option>
+         <option value ="l">l</option>
+         <option value ="f">f</option>
+         <option value ="n">n</option>
+         </select>
+         
+        <br>
+        
+        <label for="spore_print_color">spore_print_color:</label>
+        <select id="spore_print_color" name="spore_print_color">
+         <option value ="none">None</option>
+         <option value="k">k</option>
+         <option value="n">n</option>
+         <option value="u">u</option>
+         <option value ="h">h</option>
+         <option value ="w">w</option>
+         <option value ="r">r</option>
+         <option value ="o">o</option>
+         <option value ="y">y</option>
+         <option value="b">b</option>
+        </select>
+        <br>
+
+        <label for="population">population:</label>
+        <select id="Population" name="population">
+         <option value ="none">None</option>
+         <option value="a">a</option>
+         <option value="c">c</option>
+         <option value="n">n</option>
+         <option value ="s">s</option>
+         <option value ="v">v</option>
+         <option value ="y">y</option>
+        </select>
+        <br>
+        
+        <label for="habitat">habitat:</label>
+        <select id="habitat" name="habitat">
+         <option value ="none">None</option>
+         <option value="u">u</option>
+         <option value="g">g</option>
+         <option value="m">m</option>
+         <option value ="d">d</option>
+         <option value ="p">p</option>
+         <option value ="w">w</option>
+         <option value ="l">l</option>
+        </select>
+        <br>
+       
+
+        <input type="submit" value="Submit">
+    </form>
+    <div class="result-message">
+      <h2>The mushroom is {{ result_message }}</h2>
+    </div>
+</body>
+</html>

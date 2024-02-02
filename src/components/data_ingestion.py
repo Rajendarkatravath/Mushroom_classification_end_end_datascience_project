@@ -53,8 +53,17 @@ if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
 
-    data_transformation=DataTransformation()
-    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    #data_transformation=DataTransformation()
+    #train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
+    # Assuming train_data and test_data are correctly defined
+    #1data_transformation = DataTransformation()
+    #1train_arr, test_arr, preprocessor_file_path, label_encoder_file_path = data_transformation.initiate_data_transformation(train_data, test_data)
+    data_transformation = DataTransformation()
+    train_data_path = 'artifacts/train.csv'  # Replace with the correct path
+    test_data_path = 'artifacts/test.csv'    # Replace with the correct path
+
+    train_arr, test_arr, preprocessor_file_path, label_encoder_file_path = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+    
     modeltrainer=ModelTrainer()
     print(modeltrainer.initiate_model_trainer(train_arr,test_arr))

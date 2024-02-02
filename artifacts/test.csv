@@ -1,4 +1,4 @@
-class,cap-shape,cap-surface,cap-color,bruises,odor,gill-attachment,gill-spacing,gill-size,gill-color,stalk-shape,stalk-root,stalk-surface-above-ring,stalk-surface-below-ring,stalk-color-above-ring,stalk-color-below-ring,veil-type,veil-color,ring-number,ring-type,spore-print-color,population,habitat
+class,cap_shape,cap_surface,cap_color,bruises,odor,gill_attachment,gill_spacing,gill_size,gill_color,stalk_shape,stalk_root,stalk_surface_above_ring,stalk_surface_below_ring,stalk_color_above_ring,stalk_color_below_ring,veil_type,veil_color,ring_number,ring_type,spore_print_color,population,habitat
 e,f,f,n,f,n,f,w,b,h,t,e,s,f,w,w,p,w,o,e,n,s,g
 p,f,s,e,f,y,f,c,n,b,t,?,s,s,p,p,p,w,o,e,w,v,l
 p,x,y,n,f,f,f,c,n,b,t,?,k,s,w,p,p,w,o,e,w,v,l
