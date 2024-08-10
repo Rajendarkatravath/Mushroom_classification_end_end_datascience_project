@@ -8,7 +8,7 @@ import pickle
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 
-from src.exception import CustomException
+from src.Exception import CustomException
 
 def save_object(file_path, obj):
     try:
